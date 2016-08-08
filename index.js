@@ -20,7 +20,7 @@ module.exports = function sizeof (object) {
 		var bytes = 0;
 		_.forOwn(object, function (value, key) {
 			bytes += sizeof(key);
-			if ( value.constructor.name !== 'Timer' ) {
+			if ( key !== 'expired' ) {	// dirty hack, so soz
 				try {
 					bytes += sizeof(value);
 				} catch (ex) {}
